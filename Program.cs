@@ -1,25 +1,31 @@
-﻿// Задайте двумерный массив. Найдите элементы, у которых оба индекса чётные, и замените эти элементы на их квадраты.
-// Например, изначально массив
-//  выглядел вот так:
+﻿// Задайте двумерный массив. Найдите сумму элементов, находящихся на главной диагонали (с индексами (0,0); (1;1) и т.д.
+
+// Например, задан массив:
+
 // 1 4 7 2
+
 // 5 9 2 3
+
 // 8 4 2 4
 
-void ChangeArray(int[,] array)
+// Сумма элементов главной диагонали: 1+9+2 = 12
+
+int Diagonalsum(int[,] array)
 {
+    int sum = 0;
     for(int i = 0; i < array.GetLength(0); i++)
     {
         for(int j = 0; j < array.GetLength(1); j++)
         {
-           if(i % 2 == 0 && j % 2 == 0)
-           {
-            array[i,j] = array[i,j]*array[i,j];
-           }
-            Console.Write(array[i,j] + " ");
+            if(i == j)
+            {
+                sum = sum + array[i,j];
+            }
         }
-        Console.WriteLine();
     }
+    return sum;         
 }
+
 void PrintArray(int [,] array)
 {
     for(int i = 0; i < array.GetLength(0); i++)
@@ -70,5 +76,7 @@ PrintArray(matrix);
 
 //Замените элементы,у которых оба индекса чётные, на их квадраты
 Console.WriteLine();
-ChangeArray(matrix);
+int sumDiagonal = Diagonalsum(matrix);
+Console.WriteLine($"Сумма диагональных элементов массива равна {sumDiagonal}");
+
 
