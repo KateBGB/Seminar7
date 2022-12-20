@@ -1,8 +1,8 @@
-﻿// Задайте двумерный массив размером m×n, заполненный случайными целыми числами.
+﻿// Задайте двумерный массив размера m на n, каждый элемент в массиве находится по формуле: Aₘₙ = m+n. Выведите полученный массив на экран.
 // m = 3, n = 4.
-// 1 4 8 19
-// 5 -2 33 -2
-// 77 3 8 1
+// 0 1 2 3
+// 1 2 3 4
+// 2 3 4 5
 
 void PrintArray(int [,] array)
 {
@@ -25,7 +25,7 @@ int[,] FillArray(int rows, int columns, int start, int end)
     {
         for(int j = 0; j < columns; j++)
         {
-            array[i,j] = new Random().Next(start, end + 1);
+            array[i,j] = i + j;
         }
     }
     return array;
